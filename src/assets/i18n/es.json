@@ -1,5 +1,6 @@
 {
   "NAME": "Nombre",
+  "USERNAME": "Usuario",
   "PASSWORD": "Contraseña",
   "EMAIL": "Email",
   "LOGIN": "Iniciar sesión",
