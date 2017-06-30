@@ -28,6 +28,16 @@
             <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.form.controls.profilePic.value"></div>
         </div>
 
+        <ion-card>
+            <ion-card-content>
+                <img src="assets/img/img-icon.png" />
+            </ion-card-content>
+
+            <ion-item>
+                <button ion-button clear item-end (click)="getPicture()">Tomar foto</button>
+            </ion-item>
+        </ion-card>
+
         <div padding>
             <button ion-button color="primary" block>Guardar</button>
         </div>

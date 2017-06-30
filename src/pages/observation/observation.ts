@@ -42,8 +42,10 @@ export class ObservationPage {
     if (Camera['installed']()) {
       this.camera.getPicture({
         destinationType: this.camera.DestinationType.DATA_URL,
-        targetWidth: 96,
-        targetHeight: 96
+        targetWidth: 100,
+        targetHeight: 100,
+        saveToPhotoAlbum: false,
+        correctOrientation: true
       }).then((data) => {
         this.form.patchValue({ 'profilePic': 'data:image/jpg;base64,' + data });
       }, (err) => {
@@ -66,6 +68,7 @@ export class ObservationPage {
   }
 
   getProfileImageStyle() {
+    console.debug(this.form.controls['profilePic']);
     return 'url(' + this.form.controls['profilePic'].value + ')'
   }
 
