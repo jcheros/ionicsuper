@@ -1,2 +1,15 @@
 page-login {
+    .logo {
+        padding: 50px 0 10px 0;
+        min-height: 200px;
+        text-align: center;
+
+        img, fa-icon {
+            max-width: 150px;
+        }
+
+        .fa-10x {
+            font-size: 10em;
+        }
+    }
 }

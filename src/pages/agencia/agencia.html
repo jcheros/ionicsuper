@@ -1,0 +1,32 @@
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon ios="ios-menu" md="md-menu"></ion-icon>
+        </button>
+
+        <ion-title>Agencias</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+    <form *ngIf="form" [formGroup]="form">
+        <ion-list>
+            <ion-item>
+                <ion-label floating>Zona</ion-label>
+                <ion-textarea formControlName="zona"></ion-textarea>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Zona</ion-label>
+                <ion-select [(ngModel)]="employee" [compareWith]="compareFn">
+                    <ion-option *ngFor="let employee of employees" [value]="employee"></ion-option>
+                </ion-select>
+            </ion-item>
+
+        </ion-list>
+    </form>
+
+</ion-content>

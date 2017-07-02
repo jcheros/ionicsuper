@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 
-import { ObservationPage } from '../../pages/observation/observation'
+import { AgenciaPage } from '../../pages/agencia/agencia';
+import { ObservacionPage } from '../../pages/observacion/observacion';
 
 import { User } from '../../providers/user';
 
@@ -26,7 +28,8 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
-    public translateService: TranslateService) {
+    public translateService: TranslateService,
+    public loadingCtrl: LoadingController) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
@@ -35,10 +38,18 @@ export class LoginPage {
 
   // Attempt to login in through our User service
   doLogin() {
+    /*
+    let loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 3000
+    });
+    loader.present();
+    */
+
     this.user.login(this.account).subscribe((resp) => {
-      this.navCtrl.push(ObservationPage);
+      this.navCtrl.push(ObservacionPage);
     }, (err) => {
-      this.navCtrl.push(ObservationPage);
+      this.navCtrl.push(LoginPage);
       // Unable to log in
       let toast = this.toastCtrl.create({
         message: this.loginErrorString,

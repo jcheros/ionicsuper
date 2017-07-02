@@ -35,15 +35,15 @@ export class User {
    * the user entered on the form.
    */
   login(accountInfo: any) {
-    let seq = this.api.post('login', accountInfo).share();
-
+    let seq = this.api.post('user/login', accountInfo).share();
+    
     seq
       .map(res => res.json())
       .subscribe(res => {
         // If the API returned a successful response, mark the user as logged in
         console.info(res);
-        if (res.status == 'success') {
-          this._loggedIn(res);
+        if (res.response) {
+          this._loggedIn(res.result);
         } else {
         }
       }, err => {

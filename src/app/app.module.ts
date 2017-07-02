@@ -7,7 +7,8 @@ import { Storage, IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 
 import { LoginPage } from '../pages/login/login';
-import { ObservationPage } from '../pages/observation/observation'
+import { AgenciaPage } from '../pages/agencia/agencia';
+import { ObservacionPage } from '../pages/observacion/observacion'
 
 import { Api } from '../providers/api';
 import { Settings } from '../providers/settings';
@@ -19,6 +20,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { FaIconComponent } from "../components/fa-icon/fa-icon.component";
+
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -44,8 +47,10 @@ export function provideSettings(storage: Storage) {
 @NgModule({
   declarations: [
     MyApp,
+    FaIconComponent,
     LoginPage,
-    ObservationPage
+    ObservacionPage,
+    AgenciaPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +69,8 @@ export function provideSettings(storage: Storage) {
   entryComponents: [
     MyApp,
     LoginPage,
-    ObservationPage
+    ObservacionPage,
+    AgenciaPage
   ],
   providers: [
     Api,

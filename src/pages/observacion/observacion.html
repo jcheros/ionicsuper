@@ -1,0 +1,47 @@
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+            
+            <ion-icon ios="ios-menu" md="md-menu"></ion-icon>
+
+        </button>
+
+
+
+        <ion-title>Observaciones</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+    <form *ngIf="form" [formGroup]="form">
+    
+        <ion-list>
+            <ion-item>
+                <ion-label floating>Observación</ion-label>
+                <ion-textarea formControlName="descripcion"></ion-textarea>
+            </ion-item>
+        </ion-list>
+        
+        <ion-card>
+            <ion-card-content text-center>
+                <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
+                <img class="icon-card" src="assets/img/img-icon.png" *ngIf="!this.form.controls.profilePic.value" (click)="getPicture()" />
+                <img [src]="this.form.controls.profilePic.value" *ngIf="this.form.controls.profilePic.value" />
+            </ion-card-content>
+
+            <ion-item>
+                <button ion-button outline item-start color="danger" *ngIf="this.form.controls.profilePic.value" (click)="deletePicture()">Borrar foto</button>
+                <button ion-button outline item-end color="dark" (click)="getPicture()" [disabled]="this.form.controls.profilePic.value">Tomar foto</button>
+            </ion-item>
+        </ion-card>
+
+        <div padding>
+            <button ion-button color="primary" block>Guardar</button>
+        </div>
+
+    </form>
+
+</ion-content>

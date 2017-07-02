@@ -6,10 +6,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { Camera } from '@ionic-native/camera';
 
 @Component({
-  selector: 'page-observation',
-  templateUrl: 'observation.html'
+  selector: 'page-observacion',
+  templateUrl: 'observacion.html'
 })
-export class ObservationPage {
+export class ObservacionPage {
   @ViewChild('fileInput') fileInput;
 
   isReadyToSave: boolean;
@@ -56,6 +56,10 @@ export class ObservationPage {
     }
   }
 
+  deletePicture(){
+    this.form.patchValue({ 'profilePic': null });
+  }
+
   processWebImage(event) {
     let reader = new FileReader();
     reader.onload = (readerEvent) => {
@@ -65,11 +69,6 @@ export class ObservationPage {
     };
 
     reader.readAsDataURL(event.target.files[0]);
-  }
-
-  getProfileImageStyle() {
-    console.debug(this.form.controls['profilePic']);
-    return 'url(' + this.form.controls['profilePic'].value + ')'
   }
 
   /**

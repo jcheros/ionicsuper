@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
  */
 @Injectable()
 export class Api {
-  url: string = 'http://localhost/minkay-api/public';
+  url: string = 'http://192.168.21.56/minkay-api/public';
 
   constructor(public http: Http) {
   }
