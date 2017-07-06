@@ -41,9 +41,10 @@ export class ObservacionPage {
   getPicture() {
     if (Camera['installed']()) {
       this.camera.getPicture({
+        quality: 100,
         destinationType: this.camera.DestinationType.DATA_URL,
-        targetWidth: 100,
-        targetHeight: 100,
+        //targetWidth: 100,
+        //targetHeight: 100,
         saveToPhotoAlbum: false,
         correctOrientation: true
       }).then((data) => {

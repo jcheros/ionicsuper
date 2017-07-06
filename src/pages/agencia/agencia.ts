@@ -4,6 +4,8 @@ import { NavController, ViewController } from 'ionic-angular';
 
 import { TranslateService } from '@ngx-translate/core';
 
+import { Items } from '../../providers/providers';
+
 @Component({
     selector: 'page-agencia',
     templateUrl: 'agencia.html'
